@@ -1,5 +1,7 @@
-﻿using System;
+﻿using OLZ_beta.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -18,6 +20,7 @@ namespace OLZ_beta
         {
             AreaRegistration.RegisterAllAreas();
 
+            Database.SetInitializer<AnuncioDB>(new DropCreateDatabaseIfModelChanges<AnuncioDB>());
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
